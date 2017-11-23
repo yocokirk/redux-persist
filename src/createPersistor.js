@@ -2,6 +2,7 @@ import { KEY_PREFIX, REHYDRATE } from './constants'
 import createAsyncLocalStorage from './defaults/asyncLocalStorage'
 import purgeStoredState from './purgeStoredState'
 import stringify from 'json-stringify-safe'
+import BackgroundTimer from 'react-native-background-timer'
 
 export default function createPersistor (store, config) {
   // defaults
@@ -47,9 +48,9 @@ export default function createPersistor (store, config) {
 
     // time iterator (read: debounce)
     if (timeIterator === null) {
-      timeIterator = setInterval(() => {
+      timeIterator = BackgroundTimer.setInterval(() => {
         if ((paused && len === storesToProcess.length) || storesToProcess.length === 0) {
-          clearInterval(timeIterator)
+          BackgroundTimer.clearInterval(timeIterator)
           timeIterator = null
           return
         }
