@@ -49,6 +49,7 @@ export default function createPersistor (store, config) {
     // time iterator (read: debounce)
     if (timeIterator === null) {
       timeIterator = BackgroundTimer.setInterval(() => {
+        console.log(">>>PERSISTING")
         if ((paused && len === storesToProcess.length) || storesToProcess.length === 0) {
           BackgroundTimer.clearInterval(timeIterator)
           timeIterator = null
