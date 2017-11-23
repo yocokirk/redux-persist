@@ -14,7 +14,7 @@ const config = {
       jsnext: true
     }),
     commonjs({
-    	include: ['node_modules/json-stringify-safe/**']
+      include: ['node_modules/json-stringify-safe/**']
     }),
     babel({
       exclude: 'node_modules/**',
