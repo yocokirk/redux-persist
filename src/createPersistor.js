@@ -1,8 +1,9 @@
+import BackgroundTimer from 'react-native-background-timer'
+
 import { KEY_PREFIX, REHYDRATE } from './constants'
 import createAsyncLocalStorage from './defaults/asyncLocalStorage'
 import purgeStoredState from './purgeStoredState'
 import stringify from 'json-stringify-safe'
-import BackgroundTimer from 'react-native-background-timer'
 
 export default function createPersistor (store, config) {
   // defaults
